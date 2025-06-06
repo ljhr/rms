@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Frontend</title></head>
+<body>
+  <h1>Frontend radi!</h1>
+  <button onclick="fetchData()">Pozovi backend</button>
+  <pre id="output"></pre>
+
+  <script>
+    function fetchData() {
+      fetch('/api')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('output').innerText = data;
+        })
+        .catch(err => {
+          document.getElementById('output').innerText = "Error: " + err;
+        });
+    }
+  </script>
+</body>
+</html>
+
